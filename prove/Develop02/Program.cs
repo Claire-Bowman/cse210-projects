@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 class MainProgram
 {
-    //static void Main(string[] args)
     
     int optionNumber;
     string journalEntry;
