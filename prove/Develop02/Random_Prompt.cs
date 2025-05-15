@@ -1,0 +1,4 @@
+class Random_Prompt
+{
+    
+}
