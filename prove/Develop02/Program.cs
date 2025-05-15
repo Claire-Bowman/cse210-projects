@@ -15,7 +15,7 @@ class MainProgram
     
     public void Run()
     {
-        bool running = true;
+        Boolean running = true;
 
         while (running)
         {
