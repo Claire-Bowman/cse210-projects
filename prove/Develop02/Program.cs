@@ -1,19 +1,19 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-class Program
+class MainProgram
 {
-    static void Main(string[] args)
-    {
-        int optionNumber;
-        string journalEntry;
+    //static void Main(string[] args)
+    
+    int optionNumber;
+    string journalEntry;
 
-        New_Entry newEntry = new New_Entry();
-        Random_Prompt randomPrompt = new Random_Prompt();
-        Menu menu = new Menu();
-        Save save = new Save();
-        Load load = new Load();
-
+    New_Entry newEntry = new New_Entry();
+    Random_Prompt randomPrompt = new Random_Prompt();
+    Menu menu = new Menu();
+    Save save = new Save();
+    Load load = new Load();
+    
     public void Run()
     {
         bool running = true;
@@ -57,7 +57,5 @@ class Program
         MainProgram program = new MainProgram();
         program.Run();
     } 
-    }
-        
- 
+
 }
