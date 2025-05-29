@@ -2,34 +2,24 @@ using System;
 
 class Reference
 {
-    public string Book { get; private set; }
-    public int Chapter { get; private set; }
-    public int StartVerse { get; private set; }
-    public int? EndVerse { get; private set; }
+    private string _book;
+    private int _chapter;
+    private int _verse;
+    private int? _endVerse;
 
-    // Constructor for single verse
-    public Reference(string book, int chapter, int verse)
+    public Reference(string book, int chapter, int verse, int? endVerse = null)
     {
-        Book = book;
-        Chapter = chapter;
-        StartVerse = verse;
-        EndVerse = null;
-    }
-
-    // Constructor for verse range
-    public Reference(string book, int chapter, int startVerse, int endVerse)
-    {
-        Book = book;
-        Chapter = chapter;
-        StartVerse = startVerse;
-        EndVerse = endVerse;
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
+        _endVerse = endVerse;
     }
 
     public override string ToString()
     {
-        if (EndVerse.HasValue && EndVerse != StartVerse)
-            return $"{Book} {Chapter}:{StartVerse}-{EndVerse}";
+        if (_endVerse.HasValue && _endVerse != _verse)
+            return $"{_book} {_chapter}:{_verse}-{_endVerse}";
         else
-            return $"{Book} {Chapter}:{StartVerse}";
+            return $"{_book} {_chapter}:{_verse}";
     }
 }

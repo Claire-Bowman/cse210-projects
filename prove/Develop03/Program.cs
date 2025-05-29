@@ -1,31 +1,52 @@
 using System;
 
+
 class Program
 {
-    static void Main(string[] args)
+    private List<Scripture> _scriptures = new List<Scripture>();
+    private Scripture _currentScripture;
+
+    public void Run()
     {
-        var reference = new Reference("Proverbs", 3, 5, 6);
-        string text = "Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all they ways acknowledge him, and he shall direct they paths.";
-        var scripture = new Scripture(reference, text);
+        _currentScripture = new Scripture("Proverbs 3:5", "Trust in the Lord with all thine heart and lean not unto thine own understanding");
 
         while (true)
         {
-            Console.Clear();
-            scripture.Display();
+            ClearConsole();
+            DisplayScripture();
 
-            if (scripture.AllHidden())
+            if (_currentScripture.AllWordsHidden())
             {
                 Console.WriteLine("\nAll words have been hidden. Program will end.");
                 break;
             }
 
-            Console.Write("\nPress Enter to continue or type 'quit' to exit: ");
-            string input = Console.ReadLine().Trim().ToLower();
-
+            string input = GetUserInput();
             if (input == "quit")
                 break;
 
-            scripture.HideRandomWords();
+            _currentScripture.HideRandomWords();
         }
+    }
+
+    private void ClearConsole()
+    {
+        Console.Clear();
+    }
+
+    private void DisplayScripture()
+    {
+        Console.WriteLine(_currentScripture.GetDisplayText());
+    }
+
+    private string GetUserInput()
+    {
+        Console.Write("\nPress Enter to continue or type 'quit' to exit: ");
+        return Console.ReadLine().Trim().ToLower();
+    }
+
+    static void Main(string[] args)
+    {
+        new Program().Run();
     }
 }
