@@ -1,3 +1,5 @@
+using System;
+
 class Word
 {
     private string _text;
