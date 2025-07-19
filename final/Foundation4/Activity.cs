@@ -3,16 +3,23 @@ using System;
 public class Activity
 {
     private string _date;
-    private int _durationMinutes;
+    private int _minutes;
 
-    public Activity(string date, int durationMinutes)
+    public Activity(string date, int minutes)
     {
         _date = date;
-        _durationMinutes = durationMinutes;
+        _minutes = minutes;
     }
 
-    public string Date => _date;
-    public int DurationMinutes => _durationMinutes;
+    public string GetDate()
+    {
+        return _date;
+    }
+
+    public int GetMinutes()
+    {
+        return _minutes;
+    }
 
     public virtual double GetDistance()
     {
@@ -31,6 +38,6 @@ public class Activity
 
     public virtual string GetSummary()
     {
-        return $"{_date} Activity ({_durationMinutes} min)";
+        return $"{_date} Activity ({_minutes} min)";
     }
 }

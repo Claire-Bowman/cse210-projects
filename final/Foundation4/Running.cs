@@ -1,30 +1,31 @@
 public class Running : Activity
 {
-    private double _distanceMiles;
+    private double _distance; // in miles
 
-    public Running(string date, int durationMinutes, double distanceMiles)
-        : base(date, durationMinutes)
+    public Running(string date, int minutes, double distance)
+        : base(date, minutes)
     {
-        _distanceMiles = distanceMiles;
+        _distance = distance;
     }
 
     public override double GetDistance()
     {
-        return _distanceMiles;
+        return _distance;
     }
 
     public override double GetSpeed()
     {
-        return (_distanceMiles / DurationMinutes) * 60;
+        return (_distance / GetMinutes()) * 60;
     }
 
     public override double GetPace()
     {
-        return DurationMinutes / _distanceMiles;
+        return GetMinutes() / _distance;
     }
 
     public override string GetSummary()
     {
-        return $"{Date} Running ({DurationMinutes} min): Distance {GetDistance():0.0} miles, Speed {GetSpeed():0.0} mph, Pace: {GetPace():0.0} min per mile";
+        return $"{GetDate()} Running ({GetMinutes()} min): Distance {GetDistance():0.0} miles, " +
+               $"Speed {GetSpeed():0.0} mph, Pace: {GetPace():0.0} min per mile";
     }
 }
