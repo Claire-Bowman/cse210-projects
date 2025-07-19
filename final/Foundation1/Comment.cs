@@ -1,16 +1,26 @@
 public class Comment
 {
-    public string CommenterName { get; set; }
-    public string CommentText { get; set; }
+    private string _commenterName;
+    private string _text;
 
-    public Comment(string commenterName, string commentText)
+    public Comment(string commenterName, string text)
     {
-        CommenterName = commenterName;
-        CommentText = commentText;
+        _commenterName = commenterName;
+        _text = text;
     }
 
-    public string Display()
+    public string GetCommenterName()
     {
-        return $"{CommenterName}: {CommentText}";
+        return _commenterName;
+    }
+
+    public string GetText()
+    {
+        return _text;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"{_commenterName}: {_text}");
     }
 }
