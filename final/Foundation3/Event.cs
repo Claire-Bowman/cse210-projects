@@ -29,10 +29,14 @@ public class Event
     {
         return $"Event Type: General\nTitle: {_title}\nDate: {_date}";
     }
+    
+    public string GetTitle()
+    {
+        return _title;
+    }
 
-    protected string Title => _title;
-    protected string Description => _description;
-    protected string Date => _date;
-    protected string Time => _time;
-    protected Address EventAddress => _address;
+    public string GetDate()
+    {
+        return _date;
+    }
 }

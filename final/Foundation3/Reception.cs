@@ -10,11 +10,12 @@ public class Reception : Event
 
     public override string GetFullDetails()
     {
-        return $"{base.GetStandardDetails()}\nEvent Type: Reception\nRSVP Email: {_rsvpEmail}";
+        return base.GetStandardDetails()
+            + $"\nEvent Type: Reception\nRSVP Email: {_rsvpEmail}";
     }
 
     public override string GetShortDescription()
-    {
-        return $"Event Type: Reception\nTitle: {Title}\nDate: {Date}";
-    }
+{
+    return $"Event Type: Reception\nTitle: {GetTitle()}\nDate: {GetDate()}";
+}
 }

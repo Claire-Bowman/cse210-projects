@@ -13,7 +13,11 @@ public class Product
         _quantity = quantity;
     }
 
-    public string Name => _name;
-    public string ProductId => _productId;
-    public decimal TotalCost => _pricePerUnit * _quantity;
+    public string GetName() => _name;
+    public string GetProductId() => _productId;
+
+    public decimal GetTotalCost()
+    {
+        return _pricePerUnit * _quantity;
+    }
 }

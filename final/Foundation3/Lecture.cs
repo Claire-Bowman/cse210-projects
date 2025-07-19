@@ -12,11 +12,12 @@ public class Lecture : Event
 
     public override string GetFullDetails()
     {
-        return $"{base.GetStandardDetails()}\nEvent Type: Lecture\nSpeaker: {_speaker}\nCapacity: {_capacity}";
+        return base.GetStandardDetails()
+            + $"\nEvent Type: Lecture\nSpeaker: {_speaker}\nCapacity: {_capacity}";
     }
 
     public override string GetShortDescription()
-    {
-        return $"Event Type: Lecture\nTitle: {Title}\nDate: {Date}";
-    }
+{
+    return $"Event Type: Lecture\nTitle: {GetTitle()}\nDate: {GetDate()}";
+}
 }

@@ -1,26 +1,23 @@
 using System;
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main()
     {
-        // Address shared template
-        Address address1 = new Address("123 Event Blvd", "New York", "NY", "USA");
-        Address address2 = new Address("500 Beach Rd", "Santa Monica", "CA", "USA");
-        Address address3 = new Address("42 Castle St", "Edinburgh", "Scotland", "UK");
+        Address addr1 = new Address("123 Event Blvd", "New York", "NY", "USA");
+        Address addr2 = new Address("500 Beach Rd", "Santa Monica", "CA", "USA");
+        Address addr3 = new Address("42 Castle St", "Edinburgh", "Scotland", "UK");
 
-        // Create events
-        Event lecture = new Lecture("Tech Talk", "AI in 2025", "August 12", "2:00 PM", address1, "Dr. Jane Doe", 150);
-        Event reception = new Reception("Networking Mixer", "Meet local professionals", "August 15", "6:00 PM", address2, "rsvp@events.com");
-        Event outdoor = new OutdoorGathering("Summer Fest", "Live music and food trucks", "August 20", "4:00 PM", address3, "Sunny with clear skies");
+        Event lecture = new Lecture("Tech Talk", "AI in 2025", "August 12", "2:00 PM", addr1, "Dr. Jane Doe", 150);
+        Event reception = new Reception("Networking Mixer", "Meet local professionals", "August 15", "6:00 PM", addr2, "rsvp@events.com");
+        Event outdoor = new OutdoorGathering("Summer Fest", "Live music and food trucks", "August 20", "4:00 PM", addr3, "Sunny with clear skies");
 
-        // Display marketing messages
-        DisplayEventMessages(lecture);
-        DisplayEventMessages(reception);
-        DisplayEventMessages(outdoor);
+        DisplayEvent(lecture);
+        DisplayEvent(reception);
+        DisplayEvent(outdoor);
     }
 
-    static void DisplayEventMessages(Event e)
+    private static void DisplayEvent(Event e)
     {
         Console.WriteLine("----- Standard Details -----");
         Console.WriteLine(e.GetStandardDetails());
