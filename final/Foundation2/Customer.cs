@@ -9,15 +9,13 @@ public class Customer
         _address = address;
     }
 
-    public string GetName() => _name;
-
-    public bool LivesInUSA()
+    public string GetName()
     {
-        return _address.IsInUSA();
+        return _name;
     }
 
-    public string GetAddressString()
+    public Address GetAddress()
     {
-        return _address.GetFullAddress();
+        return _address;
     }
 }

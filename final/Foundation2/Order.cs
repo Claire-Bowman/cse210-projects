@@ -17,34 +17,29 @@ public class Order
         _products.Add(product);
     }
 
-    public decimal GetTotalCost()
+    public double CalculateTotalCost()
     {
-        decimal total = 0;
-        foreach (Product p in _products)
+        double total = 0;
+        foreach (Product product in _products)
         {
-            total += p.GetTotalCost();
+            total += product.GetTotalCost();
         }
-        decimal shipping = _customer.LivesInUSA() ? 5m : 35m;
-        return total + shipping;
+        total += _customer.GetAddress().IsUSA() ? 5 : 35;
+        return total;
     }
 
     public string GetPackingLabel()
     {
-        StringBuilder sb = new StringBuilder();
-        sb.AppendLine("Packing Label:");
-        foreach (Product p in _products)
+        string label = "Packing Label:\n";
+        foreach (Product product in _products)
         {
-            sb.AppendLine($"{p.GetName()} - ID: {p.GetProductId()}");
+            label += $"{product.GetName()} ({product.GetProductId()})\n";
         }
-        return sb.ToString();
+        return label;
     }
 
     public string GetShippingLabel()
     {
-        StringBuilder sb = new StringBuilder();
-        sb.AppendLine("Shipping Label:");
-        sb.AppendLine(_customer.GetName());
-        sb.AppendLine(_customer.GetAddressString());
-        return sb.ToString();
+        return $"Shipping Label:\n{_customer.GetName()}\n{_customer.GetAddress().GetFullAddress()}";
     }
 }
